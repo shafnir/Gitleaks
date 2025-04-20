@@ -1,0 +1,19 @@
+name: Gitleaks Full Commits History Scan
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  scan:
+    name: gitleaks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set BASE_REF for gitleaks, to start from the 2nd commit in the branch
+        run: echo "BASE_REF=$( git rev-list --first-parent --reverse HEAD | sed -n '2p' )" >> "$GITHUB_ENV"
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_CONFIG: ".gitleaks.toml"
+

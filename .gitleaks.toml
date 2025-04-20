@@ -1,0 +1,61 @@
+title = "secret-demo gitleaks rules"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "generic-password"
+description = "Generic password assignments (password, pass, passwd, passphrase)"
+regex = '''(?i)\b(pass(word|phrase)?|passwd)\b\s*[:=]\s*["']?[a-z0-9!@#$%^&*()_+={}\[\]:;<>,.?\/\\|~-]{6,}["']?'''
+secretGroup = 0
+tags = ["password"]
+
+[[rules]]
+id = "env-password"
+description = "Environment variable style secrets (UPPERCASE-like vars)"
+regex = '''\b([A-Z0-9_]+_?(PASS|PASSWORD|SECRET|TOKEN)[A-Z0-9_]*)\b\s*[:=]\s*["']?[A-Za-z0-9!@#$%^&*()_+={}\[\]:;<>,.?\/\\|~-]{6,}["']?'''
+secretGroup = 0
+tags = ["env", "password", "token"]
+
+[[rules]]
+id = "db-password"
+description = "Database-specific password or secret values"
+regex = '''(?i)\b(db[_\-]?(pass(word)?|passwd|secret))\b\s*[:=]\s*["']?[a-z0-9!@#$%^&*()_+={}\[\]:;<>,.?\/\\|~-]{6,}["']?'''
+secretGroup = 0
+tags = ["database", "password"]
+
+[[rules]]
+id = "generic-api-key"
+description = "Generic API key assignments (api_key, access_key, key)"
+regex = '''(?i)\b(api[_\-]?key|access[_\-]?key|key)\b\s*[:=]\s*["']?[a-zA-Z0-9_\-]{12,}["']?'''
+secretGroup = 0
+tags = ["apikey"]
+
+[[rules]]
+id = "generic-secret"
+description = "General-purpose secret or private key assignments"
+regex = '''(?i)\b(secret|sec[_\-]?key|client[_\-]?secret|private[_\-]?key)\b\s*[:=]\s*["']?[a-z0-9!@#$%^&*()_+={}\[\]:;<>,.?\/\\|~-]{8,}["']?'''
+secretGroup = 0
+tags = ["secret"]
+
+[[rules]]
+id = "generic-token"
+description = "Access/session/bearer tokens with long values"
+regex = '''(?i)\b(token|auth[_\-]?token|bearer[_\-]?token|session[_\-]?token|access[_\-]?token)\b\s*[:=]\s*["']?[a-z0-9\-_\.]{16,}["']?'''
+secretGroup = 0
+tags = ["token"]
+
+[[rules]]
+id = "jwt-token"
+description = "JWT token format (header.payload.signature)"
+regex = '''eyJ[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+'''
+secretGroup = 0
+tags = ["jwt", "token"]
+
+[[rules]]
+id = "generic-auth"
+description = "Generic credential assignments like auth, login, cred"
+regex = '''(?i)\b(auth|login|cred|credentials)\b\s*[:=]\s*["']?[a-zA-Z0-9!@#$%^&*()_+]{6,}["']?'''
+secretGroup = 0
+tags = ["auth", "credentials"]
+
