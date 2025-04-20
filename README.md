@@ -79,7 +79,7 @@ Date:        2025-04-20T17:24:28Z
 Fingerprint: 2a392ce1b4fe7d0c3830ba98b528bd8684873355:test-folder/pass.txt:generic-password:1
 ```
 
-✅ Compatibility  
+## ✅ Compatibility  
 Gitleaks v8.x+  
 GitHub Actions  
 May work but haven't been tested with GitLab CI, Bitbucket Pipelines, Jenkins, etc.  
