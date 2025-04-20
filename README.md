@@ -6,7 +6,9 @@ It helps DevSecOps teams, security engineers, and developers:
 
 - Detect hardcoded secrets and credentials  
 - Avoid false positives  
-- Integrate easily into CI/CD pipelines  
+- Integrate easily into CI/CD pipelines
+
+For organization Git accounts, please request a free commercial license at the  <a href="https://gitleaks.io/">Official Gitleaks Website</a>
 
 ---
 
@@ -83,3 +85,5 @@ Fingerprint: 2a392ce1b4fe7d0c3830ba98b528bd8684873355:test-folder/pass.txt:gener
 Gitleaks v8.x+  
 GitHub Actions  
 May work but haven't been tested with GitLab CI, Bitbucket Pipelines, Jenkins, etc.  
+
+For more information and custom settings, visit the official <a href="https://github.com/gitleaks/gitleaks-action">gitleaks-action</a> repo.
