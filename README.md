@@ -29,7 +29,9 @@ For organization Git accounts, please request a free commercial license at the  
 
 ---
 
-📁 File Structure
+## 📁 File Structure  
+Choose your prefered scan method for your `.github/workflows/gitleaks.yml` from down below.  
+Create the following file structure after cloning the repo you want to scan:  
 ```bash
 repo
 ├── .gitleaks.toml # Custom rules file
@@ -38,6 +40,10 @@ repo
         └── gitleaks.yml # Gitleaks main configuration file
 
 ```
+## Activating a Scan
+- To perform a scan, make a new commit and push the code back into your GitHub repo.
+- It will initiate a GitHub Action automatically in your cloud GitHub repo.
+- You can also initiate a local CLI scan, based on the details below.
 
 ## Scanning Last Commit Only (CI/CD Use)  
 If you're using Gitleaks in a CI/CD pipeline and want to scan only the latest commit (not the full history):  
